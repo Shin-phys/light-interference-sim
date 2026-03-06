@@ -6,6 +6,7 @@ import LloydSim from '../components/simulations/LloydSim';
 import WedgeSim from '../components/simulations/WedgeSim';
 import ThinFilmSim from '../components/simulations/ThinFilmSim';
 import NewtonSim from '../components/simulations/NewtonSim';
+import GratingSim from '../components/simulations/GratingSim';
 
 const SimulationPage = () => {
     const { id } = useParams();
@@ -37,14 +38,8 @@ const SimulationPage = () => {
             {phenomenon.id === 'wedge' && <WedgeSim level={level} />}
             {phenomenon.id === 'thin-film' && <ThinFilmSim level={level} />}
             {phenomenon.id === 'newton' && <NewtonSim level={level} />}
+            {phenomenon.id === 'grating' && <GratingSim level={level} />}
 
-            {/* 未実装の「回折格子」等の場合 */}
-            {phenomenon.id === 'grating' && (
-                <div className="panel control-panel" style={{ margin: '2rem 0' }}>
-                    <h3 style={{ color: '#64748b' }}>この現象は次の段階で実装されます。</h3>
-                    <p>他の現象（ヤング、リュイド鏡、くさび、薄膜、ニュートンリング）をお試しください。</p>
-                </div>
-            )}
         </div>
     );
 };
